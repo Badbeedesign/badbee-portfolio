@@ -3,11 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BADBEE Portfolio</title>
+
+    <title>Анастасия — BADBEE DESIGN</title>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <h1>BADBEE PORTFOLIO</h1>
-    <p>Моё портфолио работает 🐝</p>
+
+    <header class="header">
+        <a href="#" class="brand">
+            <span class="brand-name">Анастасия</span>
+            <span class="brand-subtitle">BADBEE DESIGN</span>
+        </a>
+
+        <nav class="header-nav">
+            <a href="#portfolio">Работы</a>
+            <a href="#contact">Контакты</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-copy">
+                <p class="eyebrow">ГРАФИЧЕСКИЙ ДИЗАЙН ДЛЯ БИЗНЕСА И ЭКСПЕРТОВ</p>
+
+                <h1>
+                    Дизайн, который
+                    <span>работает на задачу</span>
+                </h1>
+
+                <p class="hero-description">
+                    Презентации, инфографика, digital-дизайн и визуальные материалы,
+                    которые помогают выглядеть профессионально и продавать сильнее.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#portfolio" class="button button-primary">
+                        Смотреть работы
+                    </a>
+
+                    <a href="#contact" class="button button-secondary">
+                        Обсудить проект
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-card">
+                <div class="hero-card-label">SELECTED WORK</div>
+
+                <div class="hero-card-number">01</div>
+
+                <div class="hero-card-bottom">
+                    <span>Presentation design</span>
+                    <span>Visual systems</span>
+                    <span>Digital</span>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="portfolio" id="portfolio">
+
+            <div class="section-heading">
+                <div>
+                    <p class="eyebrow">ПОРТФОЛИО</p>
+                    <h2>Избранные проекты</h2>
+                </div>
+
+                <p class="section-description">
+                    Выберите направление и посмотрите проекты,
+                    которые ближе к вашей задаче.
+                </p>
+            </div>
+
+            <div class="filters">
+                <button class="filter-button active" data-filter="all">Все</button>
+                <button class="filter-button" data-filter="presentation">Презентации</button>
+                <button class="filter-button" data-filter="infographic">Инфографика</button>
+                <button class="filter-button" data-filter="social">Соцсети</button>
+                <button class="filter-button" data-filter="print">Полиграфия</button>
+                <button class="filter-button" data-filter="web">Сайты</button>
+            </div>
+
+            <div class="projects-grid">
+
+                <article class="project-card project-card-large" data-category="presentation">
+                    <div class="project-preview project-preview-dark">
+                        <span class="project-preview-index">01</span>
+                        <span class="project-preview-word">STRATEGY</span>
+                    </div>
+
+                    <div class="project-info">
+                        <div>
+                            <span class="project-category">Презентация</span>
+                            <h3>Стратегия развития бренда</h3>
+                        </div>
+
+                        <span class="project-arrow">↗</span>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="infographic">
+                    <div class="project-preview project-preview-light">
+                        <span class="project-preview-index">02</span>
+                        <span class="project-preview-word">DATA</span>
+                    </div>
+
+                    <div class="project-info">
+                        <div>
+                            <span class="project-category">Инфографика</span>
+                            <h3>Карточки продукта</h3>
+                        </div>
+
+                        <span class="project-arrow">↗</span>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="social">
+                    <div class="project-preview project-preview-neutral">
+                        <span class="project-preview-index">03</span>
+                        <span class="project-preview-word">SOCIAL</span>
+                    </div>
+
+                    <div class="project-info">
+                        <div>
+                            <span class="project-category">Соцсети</span>
+                            <h3>Визуальная система бренда</h3>
+                        </div>
+
+                        <span class="project-arrow">↗</span>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="print">
+                    <div class="project-preview project-preview-paper">
+                        <span class="project-preview-index">04</span>
+                        <span class="project-preview-word">PRINT</span>
+                    </div>
+
+                    <div class="project-info">
+                        <div>
+                            <span class="project-category">Полиграфия</span>
+                            <h3>Каталог продукта</h3>
+                        </div>
+
+                        <span class="project-arrow">↗</span>
+                    </div>
+                </article>
+
+                <article class="project-card project-card-wide" data-category="web">
+                    <div class="project-preview project-preview-accent">
+                        <span class="project-preview-index">05</span>
+                        <span class="project-preview-word">DIGITAL</span>
+                    </div>
+
+                    <div class="project-info">
+                        <div>
+                            <span class="project-category">Сайты</span>
+                            <h3>Лендинг образовательного проекта</h3>
+                        </div>
+
+                        <span class="project-arrow">↗</span>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="presentation">
+                    <div class="project-preview project-preview-soft">
+                        <span class="project-preview-index">06</span>
+                        <span class="project-preview-word">PITCH</span>
+                    </div>
+
+                    <div class="project-info">
+                        <div>
+                            <span class="project-category">Презентация</span>
+                            <h3>Коммерческое предложение</h3>
+                        </div>
+
+                        <span class="project-arrow">↗</span>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+        <section class="contact" id="contact">
+
+            <div class="contact-copy">
+                <p class="eyebrow">КОНТАКТЫ</p>
+
+                <h2>
+                    Есть задача?
+                    <span>Давайте обсудим.</span>
+                </h2>
+            </div>
+
+            <div class="contact-links">
+                <a href="mailto:hello@example.com">Email ↗</a>
+                <a href="#" target="_blank">Telegram ↗</a>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <span>Анастасия / BADBEE DESIGN</span>
+        <span>Portfolio</span>
+    </footer>
+
+    <script src="js/app.js"></script>
 </body>
 </html>
