@@ -23,14 +23,14 @@ const projects = [
         result:
             "Получился цельный презентационный продукт, который выглядит профессионально и помогает быстрее считывать ключевые смыслы.",
 
-        cover:
-            "assets/projects/project-1/1.jpg",
+    cover:
+    "assets/projects/project-1/1.JPG",
 
-        images: [
-            "assets/projects/project-1/1.jpg",
-            "assets/projects/project-1/2.jpg",
-            "assets/projects/project-1/3.jpg"
-        ],
+images: [
+    "assets/projects/project-1/1.JPG",
+    "assets/projects/project-1/2.JPG",
+    "assets/projects/project-1/3.JPG"
+],
 
        pdf: "assets/projects/project-1/presentation.pdf"
     },
