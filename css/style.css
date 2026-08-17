@@ -1558,3 +1558,38 @@ body.lightbox-open {
 
     border-radius: inherit;
 }
+/* =========================================
+   ОБЛОЖКА ПРОЕКТА — ФИКСИРОВАННЫЙ ФОРМАТ 16:9
+========================================= */
+
+.project-hero .project-main-preview {
+    width: 100%;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 9 !important;
+
+    position: relative;
+    overflow: hidden;
+
+    border-radius: 28px;
+}
+
+.project-hero .project-main-preview img,
+.project-hero .project-main-preview .project-main-cover {
+    position: absolute !important;
+
+    top: 0 !important;
+    left: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: center !important;
+
+    display: block;
+}
+
+.project-hero {
+    align-items: center !important;
+}
