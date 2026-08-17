@@ -2,6 +2,7 @@
     --bg: #f5f1ef;
     --surface: #ebe5e2;
     --surface-soft: #f9f7f5;
+
     --text: #242122;
     --muted: #777173;
     --line: #d8d0cd;
@@ -15,7 +16,14 @@
     --radius-small: 999px;
 }
 
-* {
+
+/* =========================
+   БАЗОВЫЕ СТИЛИ
+========================= */
+
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
@@ -25,6 +33,7 @@ html {
 
 body {
     margin: 0;
+
     background: var(--bg);
     color: var(--text);
 
@@ -34,6 +43,8 @@ body {
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
+
+    overflow-x: hidden;
 }
 
 a {
@@ -44,6 +55,11 @@ a {
 button {
     font: inherit;
 }
+
+
+/* =========================
+   HEADER
+========================= */
 
 .header {
     width: min(1400px, calc(100% - 64px));
@@ -69,6 +85,7 @@ button {
 
     font-size: 14px;
     font-weight: 700;
+
     letter-spacing: 0.08em;
     text-transform: uppercase;
 }
@@ -76,6 +93,7 @@ button {
 .brand-subtitle {
     font-size: 14px;
     font-weight: 600;
+
     letter-spacing: 0.04em;
 }
 
@@ -94,6 +112,7 @@ button {
     content: "";
 
     position: absolute;
+
     left: 0;
     bottom: -6px;
 
@@ -109,16 +128,27 @@ button {
     width: 100%;
 }
 
+
+/* =========================
+   ОБЩИЙ КОНТЕЙНЕР
+========================= */
+
 main {
     width: min(1400px, calc(100% - 64px));
     margin: 0 auto;
 }
+
+
+/* =========================
+   HERO
+========================= */
 
 .hero {
     min-height: 680px;
 
     display: grid;
     grid-template-columns: 1.3fr 0.7fr;
+
     gap: 42px;
 
     align-items: center;
@@ -133,6 +163,7 @@ main {
 
     font-size: 13px;
     font-weight: 700;
+
     letter-spacing: 0.1em;
 }
 
@@ -142,13 +173,16 @@ main {
     margin: 0;
 
     font-size: clamp(62px, 7vw, 118px);
+
     line-height: 0.92;
     letter-spacing: -0.06em;
+
     font-weight: 600;
 }
 
 .hero h1 span {
     display: block;
+
     color: var(--accent);
 }
 
@@ -166,10 +200,16 @@ main {
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
+
     gap: 14px;
 
     margin-top: 42px;
 }
+
+
+/* =========================
+   КНОПКИ
+========================= */
 
 .button {
     min-height: 54px;
@@ -196,7 +236,7 @@ main {
 
 .button-primary {
     background: var(--accent);
-    color: white;
+    color: #ffffff;
 }
 
 .button-primary:hover {
@@ -205,8 +245,14 @@ main {
 
 .button-secondary {
     border: 1px solid var(--line);
+
     background: var(--surface-soft);
 }
+
+
+/* =========================
+   HERO CARD
+========================= */
 
 .hero-card {
     min-height: 500px;
@@ -235,13 +281,14 @@ main {
             #1f1b1d
         );
 
-    color: white;
+    color: #ffffff;
 }
 
 .hero-card::after {
     content: "";
 
     position: absolute;
+
     width: 280px;
     height: 280px;
 
@@ -249,7 +296,8 @@ main {
     bottom: -80px;
 
     border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.18);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
 .hero-card-label {
@@ -257,7 +305,9 @@ main {
     z-index: 1;
 
     font-size: 12px;
+
     letter-spacing: 0.12em;
+
     opacity: 0.7;
 }
 
@@ -267,6 +317,7 @@ main {
 
     font-size: 150px;
     line-height: 1;
+
     letter-spacing: -0.08em;
 
     color: var(--accent-soft);
@@ -278,6 +329,7 @@ main {
 
     display: flex;
     flex-wrap: wrap;
+
     gap: 8px;
 }
 
@@ -286,10 +338,15 @@ main {
 
     border-radius: var(--radius-small);
 
-    background: rgba(255,255,255,0.08);
+    background: rgba(255, 255, 255, 0.08);
 
     font-size: 12px;
 }
+
+
+/* =========================
+   ПОРТФОЛИО
+========================= */
 
 .portfolio {
     padding: 90px 0 110px;
@@ -300,8 +357,9 @@ main {
 .section-heading {
     display: flex;
     justify-content: space-between;
-    gap: 40px;
     align-items: end;
+
+    gap: 40px;
 
     margin-bottom: 40px;
 }
@@ -311,13 +369,17 @@ main {
     margin: 0;
 
     font-size: clamp(42px, 5vw, 76px);
+
     line-height: 1;
+
     letter-spacing: -0.04em;
+
     font-weight: 600;
 }
 
 .section-description {
     max-width: 440px;
+
     margin: 0;
 
     color: var(--muted);
@@ -326,9 +388,15 @@ main {
     line-height: 1.55;
 }
 
+
+/* =========================
+   ФИЛЬТРЫ
+========================= */
+
 .filters {
     display: flex;
     flex-wrap: wrap;
+
     gap: 10px;
 
     margin-bottom: 32px;
@@ -357,19 +425,30 @@ main {
 
 .filter-button.active {
     background: var(--text);
-    color: white;
+    color: #ffffff;
+
     border-color: var(--text);
 }
+
+
+/* =========================
+   СЕТКА ПРОЕКТОВ
+========================= */
 
 .projects-grid {
     display: grid;
 
     grid-template-columns: repeat(12, 1fr);
+
     gap: 18px;
 }
 
 .project-card {
     grid-column: span 4;
+
+    display: block;
+
+    color: inherit;
 
     cursor: pointer;
 
@@ -390,9 +469,10 @@ main {
     grid-column: span 8;
 }
 
-.project-card.is-hidden {
-    display: none;
-}
+
+/* =========================
+   ПРЕВЬЮ КАРТОЧЕК
+========================= */
 
 .project-preview {
     min-height: 360px;
@@ -422,12 +502,15 @@ main {
     left: 22px;
 
     font-size: 13px;
+
     opacity: 0.56;
 }
 
 .project-preview-word {
     font-size: clamp(42px, 5vw, 86px);
+
     font-weight: 600;
+
     letter-spacing: -0.06em;
 
     transition: transform 0.35s ease;
@@ -441,12 +524,12 @@ main {
     background:
         radial-gradient(
             circle at 70% 50%,
-            rgba(216,107,145,0.36),
+            rgba(216, 107, 145, 0.36),
             transparent 28%
         ),
         #292426;
 
-    color: white;
+    color: #ffffff;
 }
 
 .project-preview-light {
@@ -468,7 +551,7 @@ main {
             #9f9697
         );
 
-    color: #fff;
+    color: #ffffff;
 }
 
 .project-preview-paper {
@@ -490,7 +573,7 @@ main {
             #7f3e58
         );
 
-    color: white;
+    color: #ffffff;
 }
 
 .project-preview-soft {
@@ -504,9 +587,15 @@ main {
     color: #703f50;
 }
 
+
+/* =========================
+   ИНФОРМАЦИЯ КАРТОЧКИ
+========================= */
+
 .project-info {
     display: flex;
     justify-content: space-between;
+
     gap: 18px;
 
     padding: 18px 4px 28px;
@@ -517,7 +606,9 @@ main {
 
     font-size: 12px;
     font-weight: 700;
+
     text-transform: uppercase;
+
     letter-spacing: 0.08em;
 }
 
@@ -526,6 +617,7 @@ main {
 
     font-size: 21px;
     font-weight: 600;
+
     letter-spacing: -0.02em;
 }
 
@@ -539,12 +631,18 @@ main {
     transform: translate(4px, -4px);
 }
 
+
+/* =========================
+   КОНТАКТЫ
+========================= */
+
 .contact {
     padding: 80px 0;
 
     display: flex;
     justify-content: space-between;
     align-items: end;
+
     gap: 40px;
 
     border-top: 1px solid var(--line);
@@ -552,20 +650,22 @@ main {
 
 .contact h2 span {
     display: block;
+
     color: var(--accent);
 }
 
 .contact-links {
     display: flex;
-    gap: 14px;
     flex-wrap: wrap;
+
+    gap: 14px;
 }
 
 .contact-links a {
     padding: 14px 20px;
 
-    border-radius: var(--radius-small);
     border: 1px solid var(--line);
+    border-radius: var(--radius-small);
 
     background: var(--surface-soft);
 
@@ -576,11 +676,18 @@ main {
 
 .contact-links a:hover {
     border-color: var(--accent);
-    background: white;
+
+    background: #ffffff;
 }
+
+
+/* =========================
+   FOOTER
+========================= */
 
 .footer {
     width: min(1400px, calc(100% - 64px));
+
     margin: 0 auto;
 
     padding: 30px 0 44px;
@@ -595,6 +702,510 @@ main {
     font-size: 13px;
 }
 
+
+/* =================================================
+   СТРАНИЦА ОТДЕЛЬНОГО ПРОЕКТА
+================================================= */
+
+.project-page {
+    width: min(1400px, calc(100% - 64px));
+
+    margin: 0 auto;
+}
+
+.project-back {
+    display: inline-block;
+
+    margin: 36px 0 28px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   HERO ПРОЕКТА
+========================= */
+
+.project-hero {
+    display: grid;
+
+    grid-template-columns: 1fr 0.8fr;
+
+    gap: 42px;
+
+    align-items: center;
+
+    margin-bottom: 70px;
+}
+
+.project-hero-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.project-hero h1 {
+    margin: 0;
+
+    max-width: 800px;
+
+    font-size: clamp(48px, 5.5vw, 88px);
+
+    line-height: 0.96;
+
+    letter-spacing: -0.05em;
+
+    font-weight: 600;
+}
+
+.project-description {
+    max-width: 650px;
+
+    margin-top: 26px;
+
+    color: var(--muted);
+
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.project-main-preview {
+    min-height: 360px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: var(--radius-large);
+
+    background:
+        radial-gradient(
+            circle at 70% 40%,
+            rgba(216, 107, 145, 0.3),
+            transparent 32%
+        ),
+        linear-gradient(
+            145deg,
+            #292426,
+            #3a3035
+        );
+
+    color: #ffffff;
+}
+
+.project-main-preview span {
+    font-size: clamp(42px, 5vw, 78px);
+
+    letter-spacing: -0.05em;
+}
+
+
+/* =========================
+   О ПРОЕКТЕ
+========================= */
+
+.project-case {
+    padding: 70px 0;
+
+    border-top: 1px solid var(--line);
+}
+
+.project-case-heading {
+    margin-bottom: 32px;
+}
+
+.project-case-heading h2 {
+    margin: 0;
+
+    font-size: clamp(40px, 4vw, 64px);
+
+    letter-spacing: -0.04em;
+}
+
+.project-case-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 18px;
+}
+
+.project-case-block {
+    padding: 26px;
+
+    border-radius: var(--radius-medium);
+
+    background: var(--surface-soft);
+}
+
+.project-case-label {
+    color: var(--accent-dark);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+}
+
+.project-case-block p {
+    margin: 16px 0 0;
+
+    color: var(--muted);
+
+    line-height: 1.6;
+}
+
+
+/* =================================================
+   ГАЛЕРЕЯ ПРОЕКТА
+================================================= */
+
+.project-gallery-section {
+    padding: 30px 0 90px;
+}
+
+.project-gallery-heading {
+    margin-bottom: 26px;
+}
+
+.project-gallery-heading h2 {
+    margin: 0;
+
+    font-size: clamp(38px, 4vw, 62px);
+
+    line-height: 1;
+
+    letter-spacing: -0.04em;
+}
+
+
+/*
+   ВАЖНО:
+   картинки на странице НЕ огромные.
+   Они являются только превью.
+*/
+
+.project-gallery-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.project-gallery-card {
+    position: relative;
+
+    width: 100%;
+    height: clamp(220px, 28vw, 360px);
+
+    padding: 0;
+
+    overflow: hidden;
+
+    border: 0;
+    border-radius: var(--radius-medium);
+
+    background: var(--surface);
+
+    cursor: pointer;
+}
+
+.project-gallery-card:nth-child(3n + 1) {
+    grid-column: span 2;
+
+    height: clamp(280px, 35vw, 460px);
+}
+
+.project-gallery-card img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.35s ease;
+}
+
+.project-gallery-card:hover img {
+    transform: scale(1.02);
+}
+
+.project-gallery-card::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(20, 18, 19, 0.48),
+            transparent 45%
+        );
+
+    opacity: 0;
+
+    transition: opacity 0.25s ease;
+}
+
+.project-gallery-card:hover::after {
+    opacity: 1;
+}
+
+.project-gallery-card-number,
+.project-gallery-card-open {
+    position: absolute;
+
+    z-index: 2;
+
+    bottom: 18px;
+
+    color: #ffffff;
+
+    font-size: 12px;
+    font-weight: 600;
+
+    opacity: 0;
+
+    transition: opacity 0.25s ease;
+}
+
+.project-gallery-card-number {
+    left: 18px;
+}
+
+.project-gallery-card-open {
+    right: 18px;
+}
+
+.project-gallery-card:hover .project-gallery-card-number,
+.project-gallery-card:hover .project-gallery-card-open {
+    opacity: 1;
+}
+
+
+/* =================================================
+   ПОЛНОЭКРАННЫЙ ПРОСМОТРЩИК
+================================================= */
+
+body.lightbox-open {
+    overflow: hidden !important;
+}
+
+
+/*
+   Сам просмотрщик занимает РОВНО экран.
+   Никакой прокрутки.
+*/
+
+.lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 99999;
+
+    display: none;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+
+    background: #171415;
+}
+
+.lightbox.is-open {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*
+   Область изображения занимает почти
+   весь экран, кроме небольшого места
+   для стрелок и крестика.
+*/
+
+.lightbox-content {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    height: 100vh;
+
+    padding:
+        30px
+        86px
+        30px
+        86px;
+
+    overflow: hidden;
+}
+
+
+/*
+   КЛЮЧЕВОЙ БЛОК.
+
+   Изображение никогда не становится
+   выше или шире окна браузера.
+
+   Оно ВСЕГДА видно целиком.
+*/
+
+.lightbox-content img {
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: calc(100vw - 172px);
+    max-height: calc(100vh - 60px);
+
+    object-fit: contain;
+
+    object-position: center;
+
+    border-radius: 8px;
+}
+
+
+/* =========================
+   КРЕСТИК
+========================= */
+
+.lightbox-close {
+    position: absolute;
+
+    top: 20px;
+    right: 20px;
+
+    z-index: 100002;
+
+    width: 46px;
+    height: 46px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.24);
+
+    border-radius: 50%;
+
+    background: rgba(23, 20, 21, 0.75);
+
+    color: #ffffff;
+
+    font-size: 26px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+
+/* =========================
+   СТРЕЛКИ
+========================= */
+
+.lightbox-arrow {
+    position: absolute;
+
+    top: 50%;
+
+    z-index: 100002;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transform: translateY(-50%);
+
+    border: 1px solid rgba(255, 255, 255, 0.24);
+
+    border-radius: 50%;
+
+    background: rgba(23, 20, 21, 0.75);
+
+    color: #ffffff;
+
+    font-size: 20px;
+
+    cursor: pointer;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.lightbox-arrow-left {
+    left: 20px;
+}
+
+.lightbox-arrow-right {
+    right: 20px;
+}
+
+.lightbox-close:hover,
+.lightbox-arrow:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+
+/* =========================
+   СЧЁТЧИК
+========================= */
+
+.lightbox-counter {
+    position: absolute;
+
+    left: 50%;
+    bottom: 14px;
+
+    z-index: 100002;
+
+    transform: translateX(-50%);
+
+    padding: 7px 12px;
+
+    border-radius: 999px;
+
+    background: rgba(23, 20, 21, 0.74);
+
+    color: rgba(255, 255, 255, 0.8);
+
+    font-size: 12px;
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+
+/* =================================================
+   TABLET
+================================================= */
+
 @media (max-width: 1000px) {
 
     .hero {
@@ -607,6 +1218,7 @@ main {
 
     .section-heading {
         flex-direction: column;
+
         align-items: start;
     }
 
@@ -618,15 +1230,30 @@ main {
 
     .contact {
         flex-direction: column;
+
         align-items: start;
     }
+
+    .project-hero {
+        grid-template-columns: 1fr;
+    }
+
+    .project-case-grid {
+        grid-template-columns: 1fr;
+    }
 }
+
+
+/* =================================================
+   MOBILE
+================================================= */
 
 @media (max-width: 700px) {
 
     .header,
     main,
-    .footer {
+    .footer,
+    .project-page {
         width: min(100% - 32px, 1400px);
     }
 
@@ -639,8 +1266,9 @@ main {
     }
 
     .hero {
-        padding: 54px 0 72px;
         min-height: auto;
+
+        padding: 54px 0 72px;
     }
 
     .hero h1 {
@@ -685,6 +1313,171 @@ main {
 
     .footer {
         flex-direction: column;
+
         gap: 8px;
+    }
+
+
+    /* PROJECT */
+
+    .project-main-preview {
+        min-height: 280px;
+    }
+
+    .project-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-gallery-card,
+    .project-gallery-card:nth-child(3n + 1) {
+        grid-column: auto;
+
+        height: 240px;
+    }
+
+
+    /* LIGHTBOX MOBILE */
+
+    .lightbox-content {
+        padding:
+            64px
+            14px
+            82px;
+    }
+
+    .lightbox-content img {
+        max-width: calc(100vw - 28px);
+        max-height: calc(100vh - 146px);
+
+        border-radius: 6px;
+    }
+
+    .lightbox-arrow {
+        top: auto;
+        bottom: 18px;
+
+        transform: none;
+    }
+
+    .lightbox-arrow-left {
+        left: 18px;
+    }
+
+    .lightbox-arrow-right {
+        right: 18px;
+    }
+
+    .lightbox-counter {
+        bottom: 29px;
+    }
+
+    .lightbox-close {
+        top: 14px;
+        right: 14px;
+    }
+    /* =================================================
+   PDF VIEWER
+================================================= */
+
+.project-pdf-section {
+    padding: 20px 0 100px;
+
+    border-top: 1px solid var(--line);
+}
+
+.project-pdf-section[hidden] {
+    display: none;
+}
+
+.pdf-viewer {
+    width: 100%;
+
+    padding: 18px;
+
+    border-radius: var(--radius-large);
+
+    background: #211e1f;
+}
+
+.pdf-stage {
+    width: 100%;
+    height: min(72vh, 760px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background: #171415;
+}
+
+.pdf-stage canvas {
+    display: block;
+
+    max-width: 100%;
+    max-height: 100%;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.28);
+}
+
+.pdf-controls {
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 18px;
+}
+
+.pdf-arrow {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,0.18);
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.07);
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    font-size: 18px;
+}
+
+.pdf-arrow:hover {
+    background: rgba(255,255,255,0.14);
+}
+
+.pdf-counter {
+    min-width: 74px;
+
+    text-align: center;
+
+    color: rgba(255,255,255,0.72);
+
+    font-size: 13px;
+}
+
+@media (max-width: 700px) {
+
+    .pdf-viewer {
+        padding: 10px;
+    }
+
+    .pdf-stage {
+        height: 58vh;
     }
 }
