@@ -1524,20 +1524,33 @@ body.lightbox-open {
 
 .project-main-preview {
     position: relative;
+
+    width: 100%;
+    min-height: 360px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     overflow: hidden;
+
+    padding: 18px;
+
+    border-radius: var(--radius-large);
+
+    background: #171415;
 }
 
 .project-main-cover {
-    position: absolute;
-    inset: 0;
-
     display: block;
 
     width: 100%;
     height: 100%;
 
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 
     border-radius: inherit;
+
+    background: #171415;
 }
