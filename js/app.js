@@ -1,6 +1,11 @@
 const filterButtons = document.querySelectorAll(".filter-button");
 const projectsGrid = document.querySelector(".projects-grid");
 
+
+/* =========================
+   СТИЛЬ ЗАГЛУШКИ
+========================= */
+
 function getPreviewClass(style) {
     const styleMap = {
         dark: "project-preview-dark",
@@ -14,6 +19,11 @@ function getPreviewClass(style) {
     return styleMap[style] || "project-preview-light";
 }
 
+
+/* =========================
+   РАЗМЕР КАРТОЧКИ
+========================= */
+
 function getSizeClass(size) {
     const sizeMap = {
         large: "project-card-large",
@@ -24,49 +34,116 @@ function getSizeClass(size) {
     return sizeMap[size] || "";
 }
 
+
+/* =========================
+   СОЗДАЁМ ПРЕВЬЮ
+========================= */
+
+function createProjectPreview(project) {
+
+    /* Если есть настоящая обложка */
+
+    if (project.cover) {
+        return `
+            <div class="project-preview project-preview-image">
+
+                <img
+                    src="${project.cover}"
+                    alt="${project.title}"
+                    loading="lazy"
+                >
+
+                <span class="project-preview-index">
+                    ${String(project.id).padStart(2, "0")}
+                </span>
+
+                <div class="project-preview-overlay">
+                    <span>Смотреть проект ↗</span>
+                </div>
+
+            </div>
+        `;
+    }
+
+
+    /* Если обложки пока нет */
+
+    const previewClass = getPreviewClass(project.style);
+
+    return `
+        <div class="project-preview ${previewClass}">
+
+            <span class="project-preview-index">
+                ${String(project.id).padStart(2, "0")}
+            </span>
+
+            <span class="project-preview-word">
+                ${project.preview}
+            </span>
+
+        </div>
+    `;
+}
+
+
+/* =========================
+   ВЫВОДИМ ПРОЕКТЫ
+========================= */
+
 function renderProjects(filter = "all") {
+
     const visibleProjects = projects.filter((project) => {
         return filter === "all" || project.category === filter;
     });
 
     projectsGrid.innerHTML = visibleProjects.map((project) => {
-        const previewClass = getPreviewClass(project.style);
+
         const sizeClass = getSizeClass(project.size);
 
         return `
             <a
                 class="project-card ${sizeClass}"
                 data-category="${project.category}"
-                 href="project.html?id=${project.id}"
+                href="project.html?id=${project.id}"
             >
-                <div class="project-preview ${previewClass}">
-                    <span class="project-preview-index">
-                        ${String(project.id).padStart(2, "0")}
-                    </span>
 
-                    <span class="project-preview-word">
-                        ${project.preview}
-                    </span>
-                </div>
+                ${createProjectPreview(project)}
 
                 <div class="project-info">
+
                     <div>
+
                         <span class="project-category">
                             ${project.categoryName}
                         </span>
 
-                        <h3>${project.title}</h3>
+                        <h3>
+                            ${project.title}
+                        </h3>
+
                     </div>
 
-                    <span class="project-arrow">↗</span>
+                    <span class="project-arrow">
+                        ↗
+                    </span>
+
                 </div>
+
             </a>
         `;
+
     }).join("");
 }
 
+
+/* =========================
+   ФИЛЬТРЫ
+========================= */
+
 filterButtons.forEach((button) => {
+
     button.addEventListener("click", () => {
+
         const selectedFilter = button.dataset.filter;
 
         filterButtons.forEach((item) => {
@@ -77,6 +154,12 @@ filterButtons.forEach((button) => {
 
         renderProjects(selectedFilter);
     });
+
 });
+
+
+/* =========================
+   ПЕРВЫЙ ЗАПУСК
+========================= */
 
 renderProjects();

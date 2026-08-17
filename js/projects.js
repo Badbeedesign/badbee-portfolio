@@ -63,7 +63,7 @@ const projects = [
 
         images: [],
 
-        pdf: "assets/projects/project-1/presentation.pdf"
+        pdf: null
     },
 
     {
