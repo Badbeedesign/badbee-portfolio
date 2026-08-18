@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>BADBEE Upload Test</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background: #f5f1ef;
+            color: #242122;
+        }
+
+        .box {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+        }
+
+        input,
+        button {
+            width: 100%;
+            margin-top: 16px;
+        }
+
+        button {
+            padding: 14px;
+            border: 0;
+            border-radius: 999px;
+            background: #d86b91;
+            color: white;
+            cursor: pointer;
+        }
+
+        #status {
+            margin-top: 20px;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+
+        <h1>Тест загрузки</h1>
+
+        <input
+            type="file"
+            id="fileInput"
+            accept="image/*,.pdf"
+        >
+
+        <button id="uploadButton">
+            Загрузить файл
+        </button>
+
+        <div id="status"></div>
+
+    </div>
+
+
+    <script>
+        const API_URL =
+            "https://script.google.com/macros/s/AKfycbxBQ6iFXVpJg30tT5COa7ye3YuYL2NkvMp3esKW2Zq5cmaPm58N9hwqLv12iPKS9r09jg/exec";
+
+        const fileInput =
+            document.getElementById("fileInput");
+
+        const uploadButton =
+            document.getElementById("uploadButton");
+
+        const status =
+            document.getElementById("status");
+
+
+        function fileToBase64(file) {
+            return new Promise((resolve, reject) => {
+
+                const reader = new FileReader();
+
+                reader.onload = () => {
+
+                    const result = reader.result;
+
+                    const base64 =
+                        result.split(",")[1];
+
+                    resolve(base64);
+                };
+
+                reader.onerror = reject;
+
+                reader.readAsDataURL(file);
+            });
+        }
+
+
+        uploadButton.addEventListener(
+            "click",
+            async () => {
+
+                const file =
+                    fileInput.files[0];
+
+                if (!file) {
+                    status.textContent =
+                        "Сначала выбери файл.";
+                    return;
+                }
+
+
+                status.textContent =
+                    "Загрузка...";
+
+
+                try {
+
+                    const base64 =
+                        await fileToBase64(file);
+
+
+                    const response =
+                        await fetch(API_URL, {
+
+                            method: "POST",
+
+                            body: JSON.stringify({
+                                fileName: file.name,
+                                mimeType: file.type,
+                                base64: base64
+                            })
+
+                        });
+
+
+                    const data =
+                        await response.json();
+
+
+                    status.textContent =
+                        JSON.stringify(
+                            data,
+                            null,
+                            2
+                        );
+
+
+                } catch (error) {
+
+                    status.textContent =
+                        "Ошибка:\n" + error;
+                }
+            }
+        );
+    </script>
+
+</body>
+</html>
