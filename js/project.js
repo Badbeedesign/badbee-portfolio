@@ -66,31 +66,6 @@ async function initProjectPage() {
     }
 
 
-    /* =============================================
-       2. FALLBACK НА СТАРЫЙ projects.js
-    ============================================= */
-
-    if (
-        !currentProject &&
-        typeof projects !== "undefined"
-    ) {
-
-        currentProject =
-            projects.find(
-                project =>
-                    String(project.id) ===
-                    String(projectKey)
-            );
-
-
-        if (currentProject) {
-
-            console.log(
-                "Project loaded from fallback projects.js"
-            );
-        }
-    }
-
 
     /* =============================================
        3. ПРОЕКТ НЕ НАЙДЕН

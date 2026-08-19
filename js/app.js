@@ -340,28 +340,6 @@ async function initPortfolio() {
         );
 
 
-        /*
-          Аварийный fallback.
-
-          Старый projects.js пока сохраняем,
-          чтобы сайт не становился пустым
-          при временной проблеме Supabase.
-        */
-
-        if (
-            typeof projects !==
-            "undefined"
-        ) {
-
-            activeProjects =
-                projects;
-
-
-            renderProjects();
-
-
-            return;
-        }
 
 
         projectsGrid.innerHTML = `
