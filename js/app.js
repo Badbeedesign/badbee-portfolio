@@ -1,22 +1,46 @@
-const filterButtons = document.querySelectorAll(".filter-button");
-const projectsGrid = document.querySelector(".projects-grid");
+const filterButtons =
+    document.querySelectorAll(".filter-button");
+
+const projectsGrid =
+    document.querySelector(".projects-grid");
+
+
+let activeProjects = [];
 
 
 /* =========================
-   СТИЛЬ ЗАГЛУШКИ
+   СТИЛЬ КАРТОЧКИ
 ========================= */
 
 function getPreviewClass(style) {
+
     const styleMap = {
-        dark: "project-preview-dark",
-        light: "project-preview-light",
-        neutral: "project-preview-neutral",
-        paper: "project-preview-paper",
-        accent: "project-preview-accent",
-        soft: "project-preview-soft"
+
+        dark:
+            "project-preview-dark",
+
+        light:
+            "project-preview-light",
+
+        neutral:
+            "project-preview-neutral",
+
+        paper:
+            "project-preview-paper",
+
+        accent:
+            "project-preview-accent",
+
+        soft:
+            "project-preview-soft"
+
     };
 
-    return styleMap[style] || "project-preview-light";
+
+    return (
+        styleMap[style] ||
+        "project-preview-light"
+    );
 }
 
 
@@ -25,13 +49,25 @@ function getPreviewClass(style) {
 ========================= */
 
 function getSizeClass(size) {
+
     const sizeMap = {
-        large: "project-card-large",
-        wide: "project-card-wide",
-        normal: ""
+
+        large:
+            "project-card-large",
+
+        wide:
+            "project-card-wide",
+
+        normal:
+            ""
+
     };
 
-    return sizeMap[size] || "";
+
+    return (
+        sizeMap[size] ||
+        ""
+    );
 }
 
 
@@ -39,13 +75,20 @@ function getSizeClass(size) {
    СОЗДАЁМ ПРЕВЬЮ
 ========================= */
 
-function createProjectPreview(project) {
-
-    /* Если есть настоящая обложка */
+function createProjectPreview(
+    project,
+    index
+) {
 
     if (project.cover) {
+
         return `
-            <div class="project-preview project-preview-image">
+            <div
+                class="
+                    project-preview
+                    project-preview-image
+                "
+            >
 
                 <img
                     src="${project.cover}"
@@ -53,12 +96,22 @@ function createProjectPreview(project) {
                     loading="lazy"
                 >
 
-                <span class="project-preview-index">
-                    ${String(project.id).padStart(2, "0")}
+                <span
+                    class="
+                        project-preview-index
+                    "
+                >
+                    ${String(index + 1).padStart(2, "0")}
                 </span>
 
-                <div class="project-preview-overlay">
-                    <span>Смотреть проект ↗</span>
+                <div
+                    class="
+                        project-preview-overlay
+                    "
+                >
+                    <span>
+                        Смотреть проект ↗
+                    </span>
                 </div>
 
             </div>
@@ -66,19 +119,26 @@ function createProjectPreview(project) {
     }
 
 
-    /* Если обложки пока нет */
+    const previewClass =
+        getPreviewClass(
+            project.style
+        );
 
-    const previewClass = getPreviewClass(project.style);
 
     return `
-        <div class="project-preview ${previewClass}">
+        <div
+            class="
+                project-preview
+                ${previewClass}
+            "
+        >
 
-            <span class="project-preview-index">
-                ${String(project.id).padStart(2, "0")}
-            </span>
-
-            <span class="project-preview-word">
-                ${project.preview}
+            <span
+                class="
+                    project-preview-index
+                "
+            >
+                ${String(index + 1).padStart(2, "0")}
             </span>
 
         </div>
@@ -90,49 +150,116 @@ function createProjectPreview(project) {
    ВЫВОДИМ ПРОЕКТЫ
 ========================= */
 
-function renderProjects(filter = "all") {
+function renderProjects(
+    filter = "all"
+) {
 
-    const visibleProjects = projects.filter((project) => {
-        return filter === "all" || project.category === filter;
-    });
+    const visibleProjects =
+        activeProjects.filter(
+            project => {
 
-    projectsGrid.innerHTML = visibleProjects.map((project) => {
+                return (
+                    filter === "all" ||
+                    project.category === filter
+                );
+            }
+        );
 
-        const sizeClass = getSizeClass(project.size);
 
-        return `
-            <a
-                class="project-card ${sizeClass}"
-                data-category="${project.category}"
-                href="project.html?id=${project.id}"
-            >
+    if (!visibleProjects.length) {
 
-                ${createProjectPreview(project)}
-
-                <div class="project-info">
-
-                    <div>
-
-                        <span class="project-category">
-                            ${project.categoryName}
-                        </span>
-
-                        <h3>
-                            ${project.title}
-                        </h3>
-
-                    </div>
-
-                    <span class="project-arrow">
-                        ↗
-                    </span>
-
-                </div>
-
-            </a>
+        projectsGrid.innerHTML = `
+            <div class="projects-empty">
+                В этой категории пока нет проектов.
+            </div>
         `;
 
-    }).join("");
+        return;
+    }
+
+
+    projectsGrid.innerHTML =
+        visibleProjects
+            .map(
+                (
+                    project,
+                    index
+                ) => {
+
+                    const sizeClass =
+                        getSizeClass(
+                            project.size
+                        );
+
+
+                    /*
+                      Теперь открываем проект
+                      по slug, а не по старому id.
+                    */
+
+                    const projectKey =
+                        project.slug ||
+                        project.id;
+
+
+                    return `
+                        <a
+                            class="
+                                project-card
+                                ${sizeClass}
+                            "
+                            data-category="${project.category}"
+                            href="
+                                project.html?id=${encodeURIComponent(projectKey)}
+                            "
+                        >
+
+                            ${
+                                createProjectPreview(
+                                    project,
+                                    index
+                                )
+                            }
+
+                            <div
+                                class="
+                                    project-info
+                                "
+                            >
+
+                                <div>
+
+                                    <span
+                                        class="
+                                            project-category
+                                        "
+                                    >
+                                        ${
+                                            project.categoryName
+                                        }
+                                    </span>
+
+                                    <h3>
+                                        ${project.title}
+                                    </h3>
+
+                                </div>
+
+                                <span
+                                    class="
+                                        project-arrow
+                                    "
+                                >
+                                    ↗
+                                </span>
+
+                            </div>
+
+                        </a>
+                    `;
+                }
+            )
+            .join("");
 }
 
 
@@ -140,26 +267,114 @@ function renderProjects(filter = "all") {
    ФИЛЬТРЫ
 ========================= */
 
-filterButtons.forEach((button) => {
+filterButtons.forEach(
+    button => {
 
-    button.addEventListener("click", () => {
+        button.addEventListener(
+            "click",
+            () => {
 
-        const selectedFilter = button.dataset.filter;
+                const selectedFilter =
+                    button.dataset.filter;
 
-        filterButtons.forEach((item) => {
-            item.classList.remove("active");
-        });
 
-        button.classList.add("active");
+                filterButtons.forEach(
+                    item => {
 
-        renderProjects(selectedFilter);
-    });
+                        item.classList.remove(
+                            "active"
+                        );
+                    }
+                );
 
-});
+
+                button.classList.add(
+                    "active"
+                );
+
+
+                renderProjects(
+                    selectedFilter
+                );
+            }
+        );
+    }
+);
+
+
+/* =========================
+   SUPABASE
+========================= */
+
+async function initPortfolio() {
+
+    try {
+
+        /*
+          Основной источник —
+          опубликованные проекты Supabase.
+        */
+
+        const supabaseProjects =
+            await loadPublishedProjects();
+
+
+        activeProjects =
+            supabaseProjects;
+
+
+        console.log(
+            "Portfolio loaded from Supabase ✅",
+            activeProjects.length
+        );
+
+
+        renderProjects();
+
+
+    } catch (error) {
+
+        console.error(
+            "Supabase недоступен. Используем fallback.",
+            error
+        );
+
+
+        /*
+          Аварийный fallback.
+
+          Старый projects.js пока сохраняем,
+          чтобы сайт не становился пустым
+          при временной проблеме Supabase.
+        */
+
+        if (
+            typeof projects !==
+            "undefined"
+        ) {
+
+            activeProjects =
+                projects;
+
+
+            renderProjects();
+
+
+            return;
+        }
+
+
+        projectsGrid.innerHTML = `
+            <div class="projects-empty">
+                Не удалось загрузить проекты.
+            </div>
+        `;
+    }
+}
 
 
 /* =========================
    ПЕРВЫЙ ЗАПУСК
 ========================= */
 
-renderProjects();
+initPortfolio();
