@@ -1716,3 +1716,14 @@ body.lightbox-open {
         font-size: 30px;
     }
 }
+/* =========================
+   DESIGNER CARD — HOVER
+========================= */
+
+.hero-designer-photo {
+    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-designer-card:hover .hero-designer-photo {
+    transform: scale(1.035);
+}
