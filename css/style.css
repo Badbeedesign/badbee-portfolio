@@ -1607,7 +1607,7 @@ body.lightbox-open {
     height: 100%;
 
     object-fit: cover;
-    object-position: center 34%;
+    object-position: center 28%;
 
     z-index: 0;
 }
@@ -1702,4 +1702,41 @@ body.lightbox-open {
 
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+}
+
+/* FIX: текст карточки дизайнера не перекрывает лицо */
+
+.hero-designer-content {
+    position: absolute;
+    inset: 0;
+
+    width: auto;
+    height: auto;
+
+    padding: 28px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.hero-designer-info {
+    margin-top: auto;
+    max-width: 100%;
+}
+
+
+.hero-designer-info h3 {
+    font-size: 38px;
+}
+
+
+.hero-designer-info p {
+    margin: 7px 0 14px;
+}
+
+
+.hero-designer-tags {
+    max-width: 100%;
 }
