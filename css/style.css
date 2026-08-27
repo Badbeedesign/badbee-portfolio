@@ -1720,10 +1720,11 @@ body.lightbox-open {
    DESIGNER CARD — HOVER
 ========================= */
 
-.hero-designer-photo {
-    transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+.hero-card.hero-designer-card .hero-designer-photo {
+    transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: scale(1);
 }
 
-.hero-designer-card:hover .hero-designer-photo {
-    transform: scale(1.035);
+.hero-card.hero-designer-card:hover .hero-designer-photo {
+    transform: scale(1.08);
 }
