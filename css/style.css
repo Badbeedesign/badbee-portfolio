@@ -1740,3 +1740,79 @@ body.lightbox-open {
 .hero-designer-tags {
     max-width: 100%;
 }
+
+/* =========================
+   FINAL DESIGNER CARD POSITION
+========================= */
+
+.hero-card.hero-designer-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-card.hero-designer-card .hero-designer-content {
+    position: absolute !important;
+    inset: 0 !important;
+
+    display: block !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    padding: 0 !important;
+
+    z-index: 3;
+}
+
+.hero-card.hero-designer-card .hero-designer-label {
+    position: absolute;
+
+    top: 28px;
+    left: 28px;
+
+    margin: 0;
+}
+
+.hero-card.hero-designer-card .hero-designer-info {
+    position: absolute;
+
+    left: 28px;
+    right: 28px;
+    bottom: 28px;
+
+    margin: 0 !important;
+}
+
+.hero-card.hero-designer-card .hero-designer-info h3 {
+    margin: 0 0 6px;
+
+    font-size: 36px;
+    line-height: 1;
+
+    color: #fff;
+}
+
+.hero-card.hero-designer-card .hero-designer-info p {
+    margin: 0 0 14px;
+
+    color: rgba(255,255,255,.82);
+}
+
+.hero-card.hero-designer-card .hero-designer-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+/* Чуть меньше затемнения на лице,
+   сильнее только снизу */
+.hero-card.hero-designer-card .hero-designer-overlay {
+    background:
+        linear-gradient(
+            180deg,
+            rgba(18,15,16,.10) 0%,
+            rgba(18,15,16,.03) 40%,
+            rgba(18,15,16,.22) 62%,
+            rgba(18,15,16,.90) 100%
+        ) !important;
+}
