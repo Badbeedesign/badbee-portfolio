@@ -1591,97 +1591,99 @@ body.lightbox-open {
    DESIGNER HERO CARD
 ========================= */
 
-.hero-designer-card {
+.hero-card.hero-designer-card {
     position: relative;
     overflow: hidden;
     padding: 0;
     isolation: isolate;
 }
 
-
+/* ФОТО */
 .hero-designer-photo {
     position: absolute;
     inset: 0;
-
     width: 100%;
     height: 100%;
-
     object-fit: cover;
     object-position: center 28%;
-
     z-index: 0;
 }
 
-
+/* Затемнение — почти отсутствует на лице,
+   появляется только в нижней части */
 .hero-designer-overlay {
     position: absolute;
     inset: 0;
-
     z-index: 1;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(20, 16, 18, .04) 18%,
-            rgba(20, 16, 18, .14) 50%,
-            rgba(20, 16, 18, .88) 100%
-        );
+    background: linear-gradient(
+        180deg,
+        rgba(18, 15, 16, 0.04) 0%,
+        rgba(18, 15, 16, 0.02) 48%,
+        rgba(18, 15, 16, 0.30) 68%,
+        rgba(18, 15, 16, 0.92) 100%
+    );
 }
 
-
+/* Контейнер текста */
 .hero-designer-content {
-    position: relative;
+    position: absolute;
+    inset: 0;
     z-index: 2;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    width: 100%;
-    height: 100%;
-
-    padding: 28px;
+    pointer-events: none;
 }
 
-
+/* Только маленькая надпись сверху */
 .hero-designer-label {
-    color: rgba(255, 255, 255, .82);
+    position: absolute;
+    top: 28px;
+    left: 28px;
+
+    margin: 0;
+    color: rgba(255, 255, 255, 0.86);
 
     font-size: 12px;
     font-weight: 700;
-
-    letter-spacing: .12em;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
 }
 
+/* ВСЯ основная информация строго снизу */
+.hero-designer-info {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    bottom: 28px;
 
-.hero-designer-info h3 {
     margin: 0;
-
-    color: #ffffff;
-
-    font-size: clamp(30px, 3vw, 46px);
-    line-height: .95;
-
-    letter-spacing: -.045em;
+    padding: 0;
 }
 
+/* Имя */
+.hero-designer-info h3 {
+    margin: 0 0 6px;
 
+    color: #ffffff;
+    font-size: 36px;
+    line-height: 1;
+    letter-spacing: -0.045em;
+}
+
+/* Профессия */
 .hero-designer-info p {
-    margin: 10px 0 18px;
+    margin: 0 0 14px;
 
-    color: rgba(255, 255, 255, .80);
-
+    color: rgba(255, 255, 255, 0.82);
     font-size: 14px;
 }
 
-
+/* Теги */
 .hero-designer-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 7px;
-}
 
+    max-width: 100%;
+}
 
 .hero-designer-tags span {
     display: inline-flex;
@@ -1690,11 +1692,10 @@ body.lightbox-open {
     min-height: 30px;
     padding: 0 11px;
 
-    border: 1px solid rgba(255, 255, 255, .16);
+    border: 1px solid rgba(255, 255, 255, 0.16);
     border-radius: 999px;
 
-    background: rgba(36, 30, 32, .38);
-
+    background: rgba(36, 30, 32, 0.46);
     color: #ffffff;
 
     font-size: 11px;
@@ -1704,115 +1705,20 @@ body.lightbox-open {
     -webkit-backdrop-filter: blur(10px);
 }
 
-/* FIX: текст карточки дизайнера не перекрывает лицо */
+/* MOBILE */
+@media (max-width: 700px) {
+    .hero-designer-label {
+        top: 22px;
+        left: 22px;
+    }
 
-.hero-designer-content {
-    position: absolute;
-    inset: 0;
+    .hero-designer-info {
+        left: 22px;
+        right: 22px;
+        bottom: 22px;
+    }
 
-    width: auto;
-    height: auto;
-
-    padding: 28px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-
-.hero-designer-info {
-    margin-top: auto;
-    max-width: 100%;
-}
-
-
-.hero-designer-info h3 {
-    font-size: 38px;
-}
-
-
-.hero-designer-info p {
-    margin: 7px 0 14px;
-}
-
-
-.hero-designer-tags {
-    max-width: 100%;
-}
-
-/* =========================
-   FINAL DESIGNER CARD POSITION
-========================= */
-
-.hero-card.hero-designer-card {
-    position: relative;
-    overflow: hidden;
-}
-
-.hero-card.hero-designer-card .hero-designer-content {
-    position: absolute !important;
-    inset: 0 !important;
-
-    display: block !important;
-
-    width: auto !important;
-    height: auto !important;
-
-    padding: 0 !important;
-
-    z-index: 3;
-}
-
-.hero-card.hero-designer-card .hero-designer-label {
-    position: absolute;
-
-    top: 28px;
-    left: 28px;
-
-    margin: 0;
-}
-
-.hero-card.hero-designer-card .hero-designer-info {
-    position: absolute;
-
-    left: 28px;
-    right: 28px;
-    bottom: 28px;
-
-    margin: 0 !important;
-}
-
-.hero-card.hero-designer-card .hero-designer-info h3 {
-    margin: 0 0 6px;
-
-    font-size: 36px;
-    line-height: 1;
-
-    color: #fff;
-}
-
-.hero-card.hero-designer-card .hero-designer-info p {
-    margin: 0 0 14px;
-
-    color: rgba(255,255,255,.82);
-}
-
-.hero-card.hero-designer-card .hero-designer-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-}
-
-/* Чуть меньше затемнения на лице,
-   сильнее только снизу */
-.hero-card.hero-designer-card .hero-designer-overlay {
-    background:
-        linear-gradient(
-            180deg,
-            rgba(18,15,16,.10) 0%,
-            rgba(18,15,16,.03) 40%,
-            rgba(18,15,16,.22) 62%,
-            rgba(18,15,16,.90) 100%
-        ) !important;
+    .hero-designer-info h3 {
+        font-size: 30px;
+    }
 }
