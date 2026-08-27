@@ -1586,3 +1586,120 @@ body.lightbox-open {
         min-height: 0 !important;
     }
 }
+
+/* =========================
+   DESIGNER HERO CARD
+========================= */
+
+.hero-designer-card {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    isolation: isolate;
+}
+
+
+.hero-designer-photo {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 34%;
+
+    z-index: 0;
+}
+
+
+.hero-designer-overlay {
+    position: absolute;
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+        linear-gradient(
+            180deg,
+            rgba(20, 16, 18, .04) 18%,
+            rgba(20, 16, 18, .14) 50%,
+            rgba(20, 16, 18, .88) 100%
+        );
+}
+
+
+.hero-designer-content {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 28px;
+}
+
+
+.hero-designer-label {
+    color: rgba(255, 255, 255, .82);
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+
+.hero-designer-info h3 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: clamp(30px, 3vw, 46px);
+    line-height: .95;
+
+    letter-spacing: -.045em;
+}
+
+
+.hero-designer-info p {
+    margin: 10px 0 18px;
+
+    color: rgba(255, 255, 255, .80);
+
+    font-size: 14px;
+}
+
+
+.hero-designer-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+}
+
+
+.hero-designer-tags span {
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 30px;
+    padding: 0 11px;
+
+    border: 1px solid rgba(255, 255, 255, .16);
+    border-radius: 999px;
+
+    background: rgba(36, 30, 32, .38);
+
+    color: #ffffff;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
