@@ -244,72 +244,75 @@ function renderProject(
     }
 
 
-    /* =============================================
-       ГАЛЕРЕЯ
-    ============================================= */
+  /* =============================================
+   ГАЛЕРЕЯ
+============================================= */
 
-    const images =
-        Array.isArray(
-            currentProject.images
-        )
-            ? currentProject.images
-            : [];
+const images =
+    Array.isArray(
+        currentProject.images
+    )
+        ? currentProject.images
+        : [];
 
 
-    if (projectGallery) {
+if (projectGallery) {
 
-        if (images.length > 0) {
+    const gallerySection =
+        projectGallery.closest("section");
 
-            projectGallery.innerHTML =
-                images
-                    .map(
-                        (
-                            image,
-                            index
-                        ) => {
+    if (images.length > 0) {
 
-                            return `
-                                <button
-                                    class="project-gallery-card"
-                                    data-image-index="${index}"
-                                    type="button"
+        if (gallerySection) {
+            gallerySection.hidden = false;
+        }
+
+        projectGallery.innerHTML =
+            images
+                .map(
+                    (
+                        image,
+                        index
+                    ) => {
+
+                        return `
+                            <button
+                                class="project-gallery-card"
+                                data-image-index="${index}"
+                                type="button"
+                            >
+
+                                <img
+                                    src="${image}"
+                                    alt="${currentProject.title} — изображение ${index + 1}"
+                                    loading="lazy"
                                 >
 
-                                    <img
-                                        src="${image}"
-                                        alt="${currentProject.title} — изображение ${index + 1}"
-                                        loading="lazy"
-                                    >
+                                <span
+                                    class="project-gallery-card-number"
+                                >
+                                    ${String(index + 1).padStart(2, "0")}
+                                </span>
 
-                                    <span
-                                        class="project-gallery-card-number"
-                                    >
-                                        ${String(index + 1).padStart(2, "0")}
-                                    </span>
+                                <span
+                                    class="project-gallery-card-open"
+                                >
+                                    Смотреть ↗
+                                </span>
 
-                                    <span
-                                        class="project-gallery-card-open"
-                                    >
-                                        Смотреть ↗
-                                    </span>
+                            </button>
+                        `;
+                    }
+                )
+                .join("");
 
-                                </button>
-                            `;
-                        }
-                    )
-                    .join("");
+    } else {
 
-        } else {
-
-            projectGallery.innerHTML = `
-                <div
-                    class="project-gallery-empty"
-                >
-                    Материалы проекта будут добавлены позже
-                </div>
-            `;
+        if (gallerySection) {
+            gallerySection.hidden = true;
         }
     }
+}
 
 
     /* =============================================
