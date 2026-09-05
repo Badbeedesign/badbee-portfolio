@@ -149,7 +149,7 @@ main {
     grid-template-columns: 1.3fr 0.7fr;
     gap: 42px;
     align-items: center;
-    padding: 60px 0 28px;
+    padding: 34px 0 24px;
 }
 
 .eyebrow {
@@ -184,11 +184,8 @@ main {
 
 .hero-description {
     max-width: 660px;
-
-    margin: 34px 0 0;
-
+    margin: 24px 0 0;
     color: var(--muted);
-
     font-size: 19px;
     line-height: 1.55;
 }
@@ -196,10 +193,8 @@ main {
 .hero-actions {
     display: flex;
     flex-wrap: wrap;
-
     gap: 14px;
-
-    margin-top: 42px;
+    margin-top: 28px;
 }
 
 
@@ -251,7 +246,7 @@ background 0.2s ease;
 ========================= */
 
 .hero-card {
-    min-height: 500px;
+    min-height: 440px;
 
     padding: 28px;
 
@@ -1730,7 +1725,7 @@ body.lightbox-open {
 
 .approach {
     margin-top: 0;
-    padding: 34px 0 110px;
+    padding: 24px 0 110px;
     border-top: 1px solid var(--line);
 }
 
