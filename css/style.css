@@ -144,16 +144,12 @@ main {
 ========================= */
 
 .hero {
-    min-height: 620px;
-
+    min-height: 0;
     display: grid;
     grid-template-columns: 1.3fr 0.7fr;
-
     gap: 42px;
-
     align-items: center;
-
-    padding: 68px 0;
+    padding: 60px 0 28px;
 }
 
 .eyebrow {
@@ -1733,8 +1729,8 @@ body.lightbox-open {
 ================================================= */
 
 .approach {
-    margin-top: -70px;
-    padding: 70px 0 110px;
+    margin-top: 0;
+    padding: 34px 0 110px;
     border-top: 1px solid var(--line);
 }
 
