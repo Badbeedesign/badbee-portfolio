@@ -1728,3 +1728,197 @@ body.lightbox-open {
 .hero-card.hero-designer-card:hover .hero-designer-photo {
     transform: scale(1.08);
 }
+/* =================================================
+   APPROACH / ПОДХОД К РАБОТЕ
+================================================= */
+
+.approach {
+    padding: 100px 0 110px;
+    border-top: 1px solid var(--line);
+}
+
+
+/* Верхняя смысловая часть */
+
+.approach-top {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 80px;
+    align-items: start;
+    margin-bottom: 64px;
+}
+
+
+.approach-heading h2 {
+    max-width: 620px;
+    margin: 0;
+    font-size: clamp(54px, 6vw, 92px);
+    line-height: 0.92;
+    letter-spacing: -0.055em;
+    font-weight: 600;
+}
+
+
+.approach-heading h2 span {
+    display: block;
+    color: var(--accent);
+}
+
+
+/* Основное описание */
+
+.approach-intro {
+    max-width: 690px;
+    padding-top: 30px;
+}
+
+
+.approach-lead {
+    margin: 0;
+    color: var(--text);
+    font-size: clamp(24px, 2.2vw, 34px);
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    font-weight: 500;
+}
+
+
+.approach-text {
+    max-width: 610px;
+    margin: 28px 0 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+
+/* 4 принципа */
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+
+.approach-card {
+    min-height: 280px;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-medium);
+    background: var(--surface-soft);
+}
+
+
+.approach-number {
+    color: var(--accent-dark);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+
+.approach-card h3 {
+    margin: 0 0 12px;
+    font-size: 24px;
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+    font-weight: 600;
+}
+
+
+.approach-card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+
+/* Главный акцент — AI */
+
+.approach-card-accent {
+    border-color: #292426;
+    background: #292426;
+    color: #ffffff;
+}
+
+
+.approach-card-accent .approach-number {
+    color: var(--accent-soft);
+}
+
+
+.approach-card-accent p {
+    color: rgba(255, 255, 255, 0.68);
+}
+
+
+/* =================================================
+   APPROACH — TABLET
+================================================= */
+
+@media (max-width: 1000px) {
+
+    .approach-top {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .approach-intro {
+        max-width: 760px;
+        padding-top: 0;
+    }
+
+    .approach-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =================================================
+   APPROACH — MOBILE
+================================================= */
+
+@media (max-width: 700px) {
+
+    .approach {
+        padding: 70px 0;
+    }
+
+    .approach-top {
+        margin-bottom: 42px;
+    }
+
+    .approach-heading h2 {
+        font-size: clamp(46px, 14vw, 68px);
+    }
+
+    .approach-lead {
+        font-size: 24px;
+    }
+
+    .approach-text {
+        margin-top: 20px;
+        font-size: 16px;
+    }
+
+    .approach-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .approach-card {
+        min-height: 220px;
+        padding: 24px;
+    }
+
+    .approach-card h3 {
+        font-size: 23px;
+    }
+
+}
